@@ -1,49 +1,32 @@
 public class car {
-
-    // this are all instance variables 
-
     int noOfWheels;
+    int noOfDoors;
+    int maxSpeed;
+    String name;
+    String modelNumber;
+    String company;
 
-    String color;
 
-    float maxSpeed;
-
-    float currentFuelInLitres;
-
-    int noOfSeats;
-
-    car(String color){ // default constructor
-        this.color = color;
-        noOfSeats = 6;
-        noOfWheels = 4;
-        maxSpeed = 150;
-        currentFuelInLitres = 2;
+    public car(int noOfWheels,int noOfDoors,int maxSpeed,String name,String modelNumber,String company){
+        this.noOfWheels = noOfWheels;
+        this.noOfDoors = noOfDoors;
+        this.maxSpeed = maxSpeed;
+        this.name = name;
+        this.modelNumber = modelNumber;
+        this.company = company;
     }
 
-    // this is are called instance methods  
-    public car start(){
-        if(currentFuelInLitres == 0){
-            System.out.println("car is out of fuel cannot start");
-        }else if (currentFuelInLitres < 5){
-            System.out.println("car is in reserved mode, please refuel");
-        }else{
-            System.out.println("car is started ");
-        }
-        return this;
+    
+    @Override
+    public String toString() {
+        return "car [noOfWheels=" + noOfWheels + ", noOfDoors=" + noOfDoors + ", maxSpeed=" + maxSpeed + ", name="
+                + name + ", modelNumber=" + modelNumber + ", company=" + company + "]";
     }
 
-    public void drive(){
-        currentFuelInLitres--;
-        System.out.println("car is driving");
-    }
 
-    public void addFuel(float currentFuelInLitres){
-       this.currentFuelInLitres += currentFuelInLitres;
+public static void main(String[] args) {
+        car swift = new car(4, 4, 120, "swift", "SW8547", "tata");
+        System.out.println(swift.toString());
     }
-
-    public float getCurrentFuelLevel(){
-        return currentFuelInLitres;
-    }
-
 
 }
